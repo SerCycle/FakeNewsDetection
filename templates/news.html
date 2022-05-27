@@ -7,7 +7,14 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     </head>
     <style>
-        
+        body {
+            background-image: url('static/amico.png');
+            background-position: 110% 280%;
+            height: 10vh;
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
     </style>
     <body>
         <div class="container mt-3 mb-3">
@@ -39,12 +46,12 @@
             <p>Kumpulan Top-Headline News Indonesia terkini.</p>
         </div>
 
-        <div class="container">
+        <div class="container pb-3">
             {% for news in newsapi %}
-            <div class="shadow-sm rounded-5 mb-3" style="background-color: #DCE0FD;">
+            <div class="shadow-sm rounded-3 mb-3" style="background-color: #DCE0FD;">
                 <div class="row">
                     <div class="col-3 justify-content-center">
-                        <div class="bg-image rounded-5 m-3" style="background-image: url('{{ news['urlToImage'] }}'); height: 200px; background-repeat: no-repeat; background-position: center; background-attachment: inherit;  background-size: 150%;"></div>
+                        <div class="bg-image rounded-5 m-3" style="background-image: url('{{ news['urlToImage'] }}'); height: 200px; background-repeat: no-repeat; background-position: center; background-attachment: inherit;  background-size: 200%;"></div>
                     </div>
                     <div class="col-8 align-content-around p-3" >
                         <h3>{{ news['title'] }}</h3>
@@ -55,6 +62,19 @@
             </div>
             {% endfor %}
         </div>
+
+        <div class="pt-3 pb-5 container text-center">
+            <a class="" href="#">kembali keatas</a>
+        </div>
+<!-- 
+        <div class="container-fluid" style="background-color: #6470D6; max-height: 35\vh;">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <img class="col-4 p-5" src="static/logowhite.png" alt="" style="height: auto;">
+                    <p class="col-5 m-5 text-end">Kembalikan yang nyata demi kebaikan bangsa.</p>
+                </div>
+            </div>
+        </div> -->
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     </body>

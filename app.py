@@ -27,7 +27,7 @@ def output():
 def about():
     return render_template("about.html")
 
-@app.route("/news", methods=["GET"])
+@app.route("/news")
 def news():
     url = ('https://newsapi.org/v2/top-headlines?country=id&apiKey=e7dceaffc9274a57a8116a9cf19386a8')
     response = requests.get(url)
