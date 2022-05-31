@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>FnD | About Us</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <style>
+        body {
+            background-image: url('static/background.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+    <body>
+        <div class="container mt-3 mb-3">
+            <div class="navbar navbar-expand-lg container row justify-content-between p-3">
+                <div class="col-6">
+                    <img src="static/logo.svg" alt="logo">
+                </div>
+                <button class="col-6 navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" style="color: #1F2A9D;">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="col-6 navbar-collapse collapse justify-content-end" id="navbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('home')}}" style="color: #1F2A9D;">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link active" href="{{ url_for('news')}}" style="color: #1F2A9D;">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('about')}}" style="color: #1F2A9D;">About Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container p-2 text-center justify-content-center" style="color: #1F2A9D;">
+            <h1 style="font-size: 48px;"><b>About Us</b></h1>
+            <p class="p-5">Fake News Detection kami buat dengan tujuan memenuhi proyek akhir pembelajaran
+                pada Studi Independen yang diselenggarakan oleh Kampus Merdeka pada Mitra
+                Orbit Future Academy dalam kelas AI Mastery Program. Kami membuat sebuah model
+                Artificial Intelligence yang dapat memprediksi sebuah berita kebohongan dalam tujuan
+                untuk masyarakat indonesia lebih menyikapi sebuah berita dengan seksama dan
+                tidak mudah menyebarkan kebohongan. Dengan akurasi model sekitar 89% kami yakin 
+                adanya website ini lebih memudahkan dan juga membantu masyarakat yang kesusahan
+                mendapatkan berita fakta.</p>
+        </div>
+
+        <div class="container p-2 text-center" style="color: #1F2A9D;">
+            <h1 class="pb-5" style="font-size: 48px;"><b>Team</b></h1>
+            <div class="row pt-3 d-flex p-1 justify-content-around">
+                <div class="col">
+                    <img src="static/foto/foto1.png" alt="" style="max-height: 150px; width: auto;">
+                    <p class="pt-3"><b>Alif Yanuar A. S.</b></p>
+                </div>
+                <div class="col">
+                    <img src="static/foto/foto2.png" alt="" style="max-height: 150px; width: auto;">
+                    <p class="pt-3"><b>Annisa Kunarji S.</b></p>
+                </div>
+                <div class="col">
+                    <img src="static/foto/foto3.png" alt="" style="max-height: 150px; width: auto;">
+                    <p class="pt-3"><b>Diah Siti F. A.</b></p>
+                </div>
+                <div class="col">
+                    <img src="static/foto/foto4.png" alt="" style="max-height: 150px; width: auto;">
+                    <p class="pt-3"><b>M. Fachrizal Z. H.</b></p>
+                </div>
+                <div class="col">
+                    <img src="static/foto/foto5.png" alt="" style="max-height: 150px; width: auto;">
+                    <p class="pt-3"><b>Salsabila Z. A.</b></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container p-2 text-center" style="color: #1F2A9D;">
+            <h1 class="pb-5" style="font-size: 48px;"><b>Thanks to</b></h1>
+            <div class="row pt-3 d-flex p-1 justify-content-around">
+                <div class="col">
+                    <img src="static/logo/MASTER 2.png" alt="" style="max-width: 180px; width: auto;">
+                </div>
+                <div class="col">
+                    <img src="static/logo/logo 2.png" alt="" style="max-width: 180px; width: auto;">
+                </div>
+                <div class="col">
+                    <img src="static/logo/Logo-Transparan-Warna-1 2.png" alt="" style="max-width: 180px; width: auto;">
+                </div>
+                <div class="col">
+                    <img src="static/logo/Logo_Telkom_University_potrait 2.png" alt="" style="max-width: 180px; width: auto;">
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+</html>
