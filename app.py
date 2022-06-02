@@ -14,34 +14,52 @@ from transformers import BertTokenizer
 from transformers import TFBertForSequenceClassification
 import tensorflow as tf
 from tensorflow import keras
+import sqlite3
+import os
 
 PRE_TRAINED_MODEL = 'indolem/indobert-base-uncased'
 bert_tokenizer = BertTokenizer.from_pretrained(PRE_TRAINED_MODEL)
 model = TFBertForSequenceClassification.from_pretrained(PRE_TRAINED_MODEL, num_labels = 2, from_pt=True)
 model.load_weights("model/nyoba_plis_dpt_89.h5")
 
+def add_history(teks, hasil):
+    a = teks
+    b = hasil
+    conn = sqlite3.connect("sotaken.db")
+    history = conn.cursor()
+    history.execute("insert into history (teks, hasil) values('{a}','{b}');".format(a = a, b = b))
+    conn.commit()
+
+def history_data():
+    conn = sqlite3.connect("sotaken.db")
+    history = conn.cursor()
+    history.execute("SELECT * FROM history ORDER BY id DESC LIMIT 3;")
+    rows = history.fetchall()
+    return rows
+
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
-
-@app.route("/home")
-def home():
-    return render_template("index.html")
+    history = history_data()
+    return render_template("index.html", history=history)
 
 @app.route("/hasil", methods=["POST"])
 def hasil():
+
     text = request.form["isiberita"]
     input_text_tokenized =  bert_tokenizer.encode(text, truncation = True, padding = 'max_length', return_tensors = 'tf')
     bert_predict = model(input_text_tokenized)
     bert_output = tf.nn.softmax(bert_predict[0], axis = -1)
-    kategori = ['Valid', 'Hoax']
+    kategori = ['Valid', 'Bohong']
     label = tf.argmax(bert_output, axis = 1)
     label = label.numpy()
     hasil = kategori[label[0]]
 
-    return render_template('output.html', text=hasil)
+    add_history(text, hasil)
+    history = history_data()
+
+    return render_template('output.html', text=text, hasil=hasil, history=history)
 
 @app.route("/about")
 def about():

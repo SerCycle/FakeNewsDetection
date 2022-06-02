@@ -1,1 +1,89 @@
-{{ text }}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>FnD | Hasil</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <style>
+        body {
+            background-image: url('static/background.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+    <body>
+        <div class="container mt-3 mb-3">
+            <div class="navbar navbar-expand-lg container row justify-content-between p-3">
+                <div class="col-6">
+                    <img src="static/logo.svg" alt="logo">
+                </div>
+                <button class="col-6 navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" style="color: #1F2A9D;">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="col-6 navbar-collapse collapse justify-content-end" id="navbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('index')}}" style="color: #1F2A9D;">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link active" href="{{ url_for('news')}}" style="color: #1F2A9D;">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('about')}}" style="color: #1F2A9D;">About Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container p-5 justify-content-center text-center" style="border: 3px solid #FFFFFF; background: rgba(255, 255, 255, 0.25); border-radius: 30px; color: #1F2A9D; max-width: 1080px;;">
+            <p class="p-2" style="font-size: larger;"><b>Berita yang akan diprediksi:</b></p>
+            <p>{{ text }}</p>
+        </div>
+
+        <div class="container pt-4 pb-2 text-center justify-content-center" style="color: #1F2A9D;">
+            <p class="p-2" style="font-size: larger;"><b>Berita ini terindikasi:</b></p>
+        </div>
+
+        <div class="d-flex container text-center justify-content-center align-content-center" style="max-width: 250px; min-height: 35px; border: 3px solid #DA1212; background: #DA1212; border-radius: 30px;">
+            <p class="m-2" style="color: #ffffff; font-size: 35px;" >{{ hasil }}</p>
+        </div>
+
+        <div class="container pt-4 pb-2 text-center justify-content-center" style="color: #1F2A9D;">
+            <a href="{{ url_for('index') }}#start" style="text-decoration: none; color: #1F2A9D;">Uji Narasi Lainnya</a>
+        </div>
+
+        <div class="p-5 container d-flex justify-content-center">
+            <div class="row">
+                {% for data in history %}
+                <div class="card mx-2 shadow-sm" style="width:25rem;">
+                    <div class="card-body">
+                        <div class="text-secondary">
+                            {% if data[1]|length > 200 %}
+                            <p class="card-text">{{ data[1][:200] }}...</p>
+                            {% else %}
+                            <p class="card-text">{{ data[1] }}</p>
+                            {% endif %}
+                        </div>
+                        <div class="pt-1 d-flex justify-content-end">
+                            {% if data[2] == "Valid" %}
+                            <div style="background: rgba(27, 188, 155, 0.2); border-radius: 8px;">
+                                <p class="p-2 card-text fixhasil">Valid</p>
+                            </div>
+                            {% else %}
+                            <div style="background: #FDE7D9; border-radius: 8px; max-width: 59px;">
+                                <p class="p-2 card-text fixhasil">Hoax</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+</html>

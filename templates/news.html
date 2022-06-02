@@ -25,7 +25,7 @@
                 <div class="col-6 navbar-collapse collapse justify-content-end" id="navbar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('home')}}" style="color: #1F2A9D;">Home</a>
+                            <a class="nav-link" href="{{ url_for('index')}}" style="color: #1F2A9D;">Home</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link active" href="{{ url_for('news')}}" style="color: #1F2A9D;">News</a>
@@ -46,14 +46,14 @@
         <div class="container pb-3">
             {% for news in newsapi %}
             <div class="shadow-sm rounded-3 mb-3" style="background-color: #DCE0FD;">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-3 justify-content-center">
                         <div class="bg-image rounded-5 m-3" style="background-image: url('{{ news['urlToImage'] }}'); height: 200px; background-repeat: no-repeat; background-position: center; background-attachment: inherit;  background-size: 200%;"></div>
                     </div>
-                    <div class="col-8 align-content-around p-3" >
+                    <div class="col-8 align-content-around p-3" style="color: #1F2A9D;">
                         <h3>{{ news['title'] }}</h3>
                         <p>{{ news['description'] }}</p>
-                        <a href="{{ news['url'] }}">selengkapnya.....</a>
+                        <a href="{{ news['url'] }}" style="">selengkapnya.....</a>
                     </div>
                 </div>
             </div>

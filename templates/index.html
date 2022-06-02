@@ -3,14 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>FnD | About Us</title>
+        <title>FnD | Home</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     </head>
     <style>
-        body {
-            /* background-image: url('static/background.png');
-            background-repeat: no-repeat;
-            background-attachment: fixed; */
+        .fixhasil {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
         }
     </style>
     <body>
@@ -59,13 +60,41 @@
                 <div class="mb-3">
                     <label for="isiberita" class="form-label">Masukkan berita yang akan di cek</label>
                     <textarea class="form-control" id="isiberita" name="isiberita" rows="6"></textarea>
-                    <div class="pe-5 col-4 justify-content-end">
-                        <button class="m-4 btn" style="width: 20vh; border: 1px solid #6470D6; border-radius: 35px;" type="submit">
-                            Submit
-                        </button>
+                    <div class="d-flex justify-content-end">
+                        <input class="m-4 btn" style="width: 20vh; border: 1px solid #6470D6; border-radius: 35px;" type="reset" value="Clear">
+                        <button class="m-4 btn" style="width: 20vh; border: 1px solid #6470D6; border-radius: 35px;" type="submit">Submit</button>
                     </div>
                 </div>
             </form>
+        </div>
+
+        <div class="p-5 container d-flex justify-content-center">
+            <div class="row">
+                {% for data in history %}
+                <div class="card mx-2 shadow-sm" style="width:25rem;">
+                    <div class="card-body">
+                        <div class="text-secondary">
+                            {% if data[1]|length > 200 %}
+                            <p class="card-text">{{ data[1][:200] }}...</p>
+                            {% else %}
+                            <p class="card-text">{{ data[1] }}</p>
+                            {% endif %}
+                        </div>
+                        <div class="pt-1 d-flex justify-content-end">
+                            {% if data[2] == "Valid" %}
+                            <div style="background: rgba(27, 188, 155, 0.2); border-radius: 8px;">
+                                <p class="p-2 card-text fixhasil">Valid</p>
+                            </div>
+                            {% else %}
+                            <div style="background: #FDE7D9; border-radius: 8px; max-width: 59px;">
+                                <p class="p-2 card-text fixhasil">Hoax</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
