@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>FnD | Home</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link href="static/css/animated.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@600&display=swap" rel="stylesheet"> 
     </head>
     <style>
         .fixhasil {
@@ -15,18 +17,23 @@
         }
     </style>
     <body>
-        <div class="container mt-3 mb-3">
+
+        <div class="container pt-3 mb-3" >
             <div class="navbar navbar-expand-lg container row justify-content-between p-3">
-                <div class="col-6">
-                    <img src="static/logo.svg" alt="logo">
+                <div class="col-6 d-flex align-items-center">
+                    <img src="static/logo.png" alt="logo" style="max-height: 48px; width: auto;">
+                    <h2 class="ps-3" style="color: #05084B;"><b>Sotaken</b></h2>
                 </div>
-                <button class="col-6 navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" style="color: #1F2A9D;">
+                <button class="col-6 navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" style="color: #1F2A9D; max-width: 75px;">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="col-6 navbar-collapse collapse justify-content-end" id="navbar">
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link active" href="{{ url_for('news')}}" style="color: #1F2A9D;">News</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('index')}}" style="color: #1F2A9D;"><b>Home</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('news')}}" style="color: #1F2A9D;">News</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('about')}}" style="color: #1F2A9D;">About Us</a>
@@ -36,43 +43,96 @@
             </div>
         </div>
 
-        <div class="container p-2 text-center" style="color: #1F2A9D;">
+        <div class="container p-2 pb-5">
             <div class="row d-flex justify-content-around">
                 <div class="col-6 text-start">
-                    <h1 class="p-3" style="font-size: 48px;"><b>Fake News Detection</b></h1>
-                    <p class="p-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, soluta. Sunt unde tenetur minima sint architecto illo in doloribus nobis molestias eaque dolorum, quo vitae tempore, natus ratione dignissimos quidem?</p>
-                    <a class="btn p-3 text-white" href="#start" style="text-decoration: none; border-radius: 40px; background: #6470D6;">Lets Demo</a>
+                    <h1 class="pt-2" style="font-size: 48px; color: #05084B;"><b>Society</b></h1>
+                    <h1 class="pt-2" style="font-size: 48px; color: #457CFC;"><b>Anti Fake News</b></h1>
+                    <p class="ps-3 pt-2 fadeIn animated" style="color: #464646; border-left: 5px solid #1F2A9D; height: auto; font-family: 'Fira Code', monospace;">Fake News Detection merupakan sebuah model Artificial Intelligence yang dapat memprediksi sebuah berita kebohongan dengan akurasi model sekitar 89% dengan tujuan memudahkan dan juga membantu masyarakat yang kesusahan mendapatkan berita fakta.</p>
+                    <a class="btn p-3 text-white" href="#start" style="width: 188px; text-decoration: none; border-radius: 20px; background: #457CFC;">Lets Demo</a>
                 </div>
                 <div class="col-6">
-                    <img style="max-width: 512px; height: auto;" src="static/amico.png" alt="">
+                    <img class="fadeInRight animated" data-wow-duration="0.5s" style="max-width: 512px; height: auto; visibility: visible;-webkit-animation-duration: 1s; -moz-animation-duration: 1s; animation-duration: 1s;-webkit-animation-delay: 0.5s; -moz-animation-delay: 0.5s;" src="static/amico.png" alt="">
                 </div>
             </div>
         </div>
 
-        <div class="container p-2 justify-content-center text-center" style="color: #1F2A9D;">
-            <p class="p-2" style="border: 3px solid #6470D6; border-radius: 30px; font-size: larger;">Diawal 2022, Kominfo sudah menemukan sebanyak 9.546 berita Hoax di Internet.
-                Jumlah berita Hoax yang ada mungkin akan terus bertambah hingga sekarang ini.</p>
+        <div class="container p-2">
+            <div class="row d-flex justify-content-around">
+                <div class="col-6" style="height: 460px;">
+                    <img class="fadeInLeft animated" data-wow-duration="0.5s" src="static/banner1.png" alt="" style="visibility: visible;-webkit-animation-duration: 1s; -moz-animation-duration: 1s; animation-duration: 1s;-webkit-animation-delay: 0.5s; -moz-animation-delay: 0.5s;">
+                </div>
+                <div class="col-6 text-end">
+                    <h3 class="pt-5" style="color: #457CFC;">Tahukah kamu</h3>
+                    <h1 class="pt-2" style="font-size: 48px; color: #1F2A9D;"><b>9.546 Berita Hoax</b></h1>
+                    <p class="pe-3 pt-2 fadeIn animated" style="color: #464646; border-right: 5px solid #1F2A9D; font-family: 'Fira Code', monospace;">Diawal 2022, Kominfo sudah menemukan sebanyak 9.546 berita Hoax di Internet. Jumlah berita Hoax yang ada mungkin akan terus bertambah hingga sekarang ini.</p>    
+                </div>
+            </div>
+        </div>
+
+        <div class="container p-2 text-center">
+            <h3 class="pe-3 pt-5" style="color: #457CFC;">Our Solution</h3>
+            <h1 class="pe-3 pt-2" style="font-size: 48px; color: #1F2A9D;"><b>Fake News Detection</b></h1>
+            <div class="pt-3">
+                <div class="row text-start d-flex justify-content-around">
+                    <div class="rounded mx-2 shadow-sm" style="width:25rem;">
+                        <div class="p-2">
+                            <img src="static/icon/otak.png" alt="">
+                            <div class="">
+                                <h4 style="color: #05084B;">Mendeteksi Berita Hoax Menggunakan Teknologi AI</h4>
+                            </div>
+                            <div class="text-secondary">
+                                <p>Sebuah model Artificial Intelligence yang dapat memprediksi sebuah berita kebohongan dengan akurasi model sekitar 89%.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded mx-2 shadow-sm" style="width:25rem;">
+                        <div class="p-2">
+                            <img src="static/icon/jari.png" alt="">
+                            <div class="">
+                                <h4 style="color: #05084B;">Mempelajari Pola dari Kumpulan Berita Hoax dan Real</h4>
+                            </div>
+                            <div class="text-secondary">
+                                <p>Salah satu solusi untuk mengatasi munculnya berita palsu dengan teknik pengecekan berita secara otomatis dengan menggunakan NLP (Natural Language Processing) dan kecerdasan buatan.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded mx-2 shadow-sm" style="width:25rem;">
+                        <div class="p-2">
+                            <img src="static/icon/search.png" alt="">
+                            <div class="">
+                                <h4 style="color: #05084B;">Solusi Cepat untuk Mendeteksi Kebenaran Isi Berita</h4>
+                            </div>
+                            <div class="text-secondary">
+                                <p>Fake News Detection dibuat dengan tujuan memudahkan dan juga membantu masyarakat mendapatkan berita fakta.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div id="start" class="container p-2 text-center" style="color: #1F2A9D;">
-            <h1 class="p-3" style="font-size: 48px;"><b>Input text and Predict</b></h1>
+            <h3 class="pe-3 pt-2" style="color: #457CFC;">Demo</h3>
+            <h1 class="pe-3 pt-2" style="font-size: 48px; color: #1F2A9D;"><b>Masukkan Teks Berita</b></h1>
             <form action="{{ url_for('hasil')}}" method="POST">
-                <div class="mb-3">
-                    <label for="isiberita" class="form-label">Masukkan berita yang akan di cek</label>
-                    <textarea class="form-control" id="isiberita" name="isiberita" rows="6"></textarea>
+                <div class="pt-3">
+                    <textarea class="form-control" id="isiberita" name="isiberita" rows="10"></textarea>
                     <div class="d-flex justify-content-end">
-                        <input class="m-4 btn" style="width: 20vh; border: 1px solid #6470D6; border-radius: 35px;" type="reset" value="Clear">
-                        <button class="m-4 btn" style="width: 20vh; border: 1px solid #6470D6; border-radius: 35px;" type="submit">Submit</button>
+                        <input class="m-4 btn" style="color: #377DFF; width: 20vh; border: 1px solid #377DFF; border-radius: 35px;" type="reset" value="Clear">
+                        <button class="m-4 btn text-white" style="width: 20vh; border: 1px solid #377DFF; border-radius: 35px; background: #377DFF;" type="submit">Submit</button>
                     </div>
                 </div>
             </form>
         </div>
 
-        <div class="p-5 container d-flex justify-content-center">
-            <div class="row">
+        <div class="pb-5 container text-center">
+            <h3 class="pe-3 pt-2" style="color: #457CFC;">history</h3>
+            <h1 class="pe-3 pt-2" style="font-size: 48px; color: #1F2A9D;"><b>Latest Prediction</b></h1>
+            <div class="pt-5 pb-2 row d-flex justify-content-center">
                 {% for data in history %}
-                <div class="card mx-2 shadow-sm" style="width:25rem;">
-                    <div class="card-body">
+                <div class="rounded mx-2 shadow-sm text-start" style="width:25rem;">
+                    <div class="p-2">
                         <div class="text-secondary">
                             {% if data[1]|length > 200 %}
                             <p class="card-text">{{ data[1][:200] }}...</p>
@@ -95,6 +155,10 @@
                 </div>
                 {% endfor %}
             </div>
+        </div>
+
+        <div>
+
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

@@ -7,19 +7,16 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     </head>
     <style>
-        body {
-            background-image: url('static/background.png');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
+        
     </style>
     <body>
         <div class="container mt-3 mb-3">
             <div class="navbar navbar-expand-lg container row justify-content-between p-3">
-                <div class="col-6">
-                    <img src="static/logo.svg" alt="logo">
+                <div class="col-6 d-flex align-items-center">
+                    <img src="static/logo.png" alt="logo" style="max-height: 48px; width: auto;">
+                    <h2 class="ps-3" style="color: #05084B;"><b>Sotaken</b></h2>
                 </div>
-                <button class="col-6 navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" style="color: #1F2A9D;">
+                <button class="col-6 navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" style="color: #1F2A9D; max-width: 75px;">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="col-6 navbar-collapse collapse justify-content-end" id="navbar">
@@ -27,8 +24,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('index')}}" style="color: #1F2A9D;">Home</a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link active" href="{{ url_for('news')}}" style="color: #1F2A9D;">News</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('news')}}" style="color: #1F2A9D;"><b>News</b></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('about')}}" style="color: #1F2A9D;">About Us</a>

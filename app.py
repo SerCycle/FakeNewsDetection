@@ -9,6 +9,7 @@ import pandas as pd
 import seaborn as sns
 import nltk
 import re
+from sklearn import preprocessing
 import transformers
 from transformers import BertTokenizer
 from transformers import TFBertForSequenceClassification
@@ -16,6 +17,17 @@ import tensorflow as tf
 from tensorflow import keras
 import sqlite3
 import os
+
+def text_preprocessing(text):
+    text = text.lower()                               
+    text = re.sub(r'https?://\S+|www\.\S+', '', text) 
+    text = re.sub(r'[-+]?[0-9]+', '', text)           
+    text = re.sub(r'[^\w\s]','', text)
+    text = re.sub(r'ï½','', text)
+    text = re.sub(r'ï¿½','', text)
+    text = re.sub(r'\n',' ', text)                                         
+    text = text.strip()                               
+    return text
 
 PRE_TRAINED_MODEL = 'indolem/indobert-base-uncased'
 bert_tokenizer = BertTokenizer.from_pretrained(PRE_TRAINED_MODEL)
@@ -47,19 +59,20 @@ def index():
 @app.route("/hasil", methods=["POST"])
 def hasil():
 
-    text = request.form["isiberita"]
+    rawtext = request.form["isiberita"]
+    text = text_preprocessing(rawtext)
     input_text_tokenized =  bert_tokenizer.encode(text, truncation = True, padding = 'max_length', return_tensors = 'tf')
     bert_predict = model(input_text_tokenized)
     bert_output = tf.nn.softmax(bert_predict[0], axis = -1)
-    kategori = ['Valid', 'Bohong']
+    kategori = ['Valid', 'Hoax']
     label = tf.argmax(bert_output, axis = 1)
     label = label.numpy()
     hasil = kategori[label[0]]
 
-    add_history(text, hasil)
+    add_history(rawtext, hasil)
     history = history_data()
 
-    return render_template('output.html', text=text, hasil=hasil, history=history)
+    return render_template('output.html', text=rawtext, hasil=hasil, history=history)
 
 @app.route("/about")
 def about():

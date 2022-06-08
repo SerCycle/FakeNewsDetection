@@ -7,19 +7,16 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     </head>
     <style>
-        body {
-            background-image: url('static/background.png');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
+        
     </style>
     <body>
         <div class="container mt-3 mb-3">
             <div class="navbar navbar-expand-lg container row justify-content-between p-3">
-                <div class="col-6">
-                    <img src="static/logo.svg" alt="logo">
+                <div class="col-6 d-flex align-items-center">
+                    <img src="static/logo.png" alt="logo" style="max-height: 48px; width: auto;">
+                    <h2 class="ps-3" style="color: #05084B;"><b>Sotaken</b></h2>
                 </div>
-                <button class="col-6 navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" style="color: #1F2A9D;">
+                <button class="col-6 navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" style="color: #1F2A9D; max-width: 75px;">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="col-6 navbar-collapse collapse justify-content-end" id="navbar">
@@ -27,8 +24,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('index')}}" style="color: #1F2A9D;">Home</a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link active" href="{{ url_for('news')}}" style="color: #1F2A9D;">News</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('news')}}" style="color: #1F2A9D;">News</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('about')}}" style="color: #1F2A9D;">About Us</a>
@@ -38,7 +35,7 @@
             </div>
         </div>
 
-        <div class="container p-5 justify-content-center text-center" style="border: 3px solid #FFFFFF; background: rgba(255, 255, 255, 0.25); border-radius: 30px; color: #1F2A9D; max-width: 1080px;;">
+        <div class="container p-5 justify-content-center text-center" style="border: 3px solid #1F2A9D; background: rgba(149, 149, 149, 0.12); border-radius: 30px; color: #1F2A9D; max-width: 1080px;;">
             <p class="p-2" style="font-size: larger;"><b>Berita yang akan diprediksi:</b></p>
             <p>{{ text }}</p>
         </div>
@@ -47,19 +44,29 @@
             <p class="p-2" style="font-size: larger;"><b>Berita ini terindikasi:</b></p>
         </div>
 
+        {% if hasil == 'Valid' %}
+        <div class="d-flex container text-center justify-content-center align-content-center" style="max-width: 250px; min-height: 35px; border: 3px solid #09b122; background: #09b122; border-radius: 30px;">
+            <p class="m-2" style="color: #ffffff; font-size: 35px;" >{{ hasil }}</p>
+        </div>
+        {% else %}
         <div class="d-flex container text-center justify-content-center align-content-center" style="max-width: 250px; min-height: 35px; border: 3px solid #DA1212; background: #DA1212; border-radius: 30px;">
             <p class="m-2" style="color: #ffffff; font-size: 35px;" >{{ hasil }}</p>
         </div>
+        {% endif %}
+
+        
 
         <div class="container pt-4 pb-2 text-center justify-content-center" style="color: #1F2A9D;">
             <a href="{{ url_for('index') }}#start" style="text-decoration: none; color: #1F2A9D;">Uji Narasi Lainnya</a>
         </div>
 
-        <div class="p-5 container d-flex justify-content-center">
-            <div class="row">
+        <div class="p-5 container text-center">
+            <h3 class="pe-3 pt-3" style="color: #457CFC;">history</h3>
+            <h1 class="pe-3 pt-2" style="font-size: 48px; color: #1F2A9D;"><b>Latest Prediction</b></h1>
+            <div class="pt-5 pb-2 row d-flex justify-content-center">
                 {% for data in history %}
-                <div class="card mx-2 shadow-sm" style="width:25rem;">
-                    <div class="card-body">
+                <div class="rounded mx-2 shadow-sm text-start" style="width:25rem;">
+                    <div class="p-3">
                         <div class="text-secondary">
                             {% if data[1]|length > 200 %}
                             <p class="card-text">{{ data[1][:200] }}...</p>
