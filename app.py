@@ -16,7 +16,6 @@ from transformers import TFBertForSequenceClassification
 import tensorflow as tf
 from tensorflow import keras
 import sqlite3
-import os
 
 def text_preprocessing(text):
     text = text.lower()                               
@@ -60,7 +59,10 @@ def index():
 def hasil():
 
     rawtext = request.form["isiberita"]
-    text = text_preprocessing(rawtext)
+    if len(rawtext) > 511:
+        text = text_preprocessing(rawtext[:511])
+    else:
+        text = text_preprocessing(rawtext)
     input_text_tokenized =  bert_tokenizer.encode(text, truncation = True, padding = 'max_length', return_tensors = 'tf')
     bert_predict = model(input_text_tokenized)
     bert_output = tf.nn.softmax(bert_predict[0], axis = -1)

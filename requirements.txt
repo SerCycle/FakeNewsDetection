@@ -1,0 +1,12 @@
+Flask==2.1.1
+newsapi==0.1.1
+newsapi_python==0.2.6
+nltk==3.7
+numpy==1.22.3
+pandas==1.4.1
+requests==2.27.1
+scikit_learn==1.1.1
+seaborn==0.11.2
+tensorflow==2.8.0
+transformers==4.19.2
+gunicorn
