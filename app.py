@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, jsonify
 import numpy as np
-from newsapi import NewsApiClient
 import requests
 import json
 import random
@@ -71,7 +70,7 @@ def hasil():
     label = label.numpy()
     hasil = kategori[label[0]]
 
-    add_history(rawtext, hasil)
+    add_history(text, hasil)
     history = history_data()
 
     return render_template('output.html', text=rawtext, hasil=hasil, history=history)

@@ -1,6 +1,4 @@
 Flask==2.1.1
-newsapi==0.1.1
-newsapi_python==0.2.6
 nltk==3.7
 numpy==1.22.3
 pandas==1.4.1
