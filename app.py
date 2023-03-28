@@ -78,7 +78,7 @@ def hasil():
 @app.route("/about")
 def about():
     return render_template("about.html")
-
+# test
 @app.route("/news")
 def news():
     url = ('https://newsapi.org/v2/top-headlines?country=id&apiKey=e7dceaffc9274a57a8116a9cf19386a8')
